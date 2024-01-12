@@ -15,8 +15,6 @@ editor: visual
 command option i to create code chunk command shift return to run entire code chunk
 
 ```{r setup}
-install.packages("sf")
-install.packages("tmap")
 
 library(tidyverse)
 library(here)
@@ -132,7 +130,7 @@ load a list of CA native species
 ca_native_df <- read_csv(here('data/sfo_trees/ca_native_spp.csv'))
 ```
 
-How can we compare the CA native species to those in our SF trees database? Add a colmn noting whether a tree is native or not. We'll need the common and scientific names separated.
+How can we compare the CA native species to those in our SF trees database? Add a column noting whether a tree is native or not. We'll need the common and scientific names separated.
 
 ```{r}
 sfo_trees_native <- sfo_trees_df %>%
@@ -145,3 +143,17 @@ sfo_native_status <- sfo_trees_native %>%
   summarize(n_trees = n(), 
             n_species = n_distinct(spp_sci))
 ```
+
+
+
+### Try on your own: 
+
+1. in your github account, create a new repository called "lab1_practice", then clone it to your laptop 
+
+in the new r project: 
+
+create a new quarto document, set up header for code folding. set echo, message and warning. 
+
+attach tidyverse and the gapminder package
+
+for each year and continent, summarize the average per-capita gdp across all countries in the continent. hint- don't just average the country level values 
